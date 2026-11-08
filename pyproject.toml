@@ -3,7 +3,8 @@ name = "evok"
 version = "0.1.0"
 description = "Pure-Python high-performance packaging engine and virtualization runtime"
 readme = "README.md"
-license = { text = "MIT" }
+license = "MIT"
+license-files = ["LICENSE"]
 authors = [
     { name = "ellainng", email = "299958882+ellainng@users.noreply.github.com" }
 ]
