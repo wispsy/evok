@@ -25,19 +25,40 @@ Evok demonstrates that a clean-slate Python implementation leveraging modern OS 
 
 ### Installation
 
+Evok offers multiple installation channels: Homebrew tap, PyPI (`uv`/`pip`), or source.
+
+#### Option 1: Homebrew Tap (`wispsy/homebrew-tap`)
+
+Install Evok via the official [Wispsy Homebrew tap](https://github.com/wispsy/homebrew-tap):
+
+```bash
+# Add the tap
+brew tap wispsy/tap
+
+# Install the CLI formula (isolated Python environment)
+brew install evok
+```
+
+#### Option 2: PyPI (`uv` / `pip`)
+
 Evok runs on Python 3.12+ with zero external runtime dependencies:
 
 ```bash
-# Using uv
+# Using uv (recommended)
+uv tool install evok
+# or
 uv pip install evok
 
 # Or via pip
 pip install evok
 ```
 
-### Command-Line Usage (`ev`)
+### Command-Line Usage (`ev` / `evok`)
 
 ```bash
+# Display version
+ev --version
+
 # Initialize a new project
 ev init my-app
 
