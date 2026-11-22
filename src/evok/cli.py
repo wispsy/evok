@@ -216,9 +216,24 @@ def cmd_info(args: argparse.Namespace) -> int:
 
 def main(argv: list[str] | None = None) -> int:
     """Entry point for ev and evok CLI."""
+    from evok import __version__
+
+    if argv is None:
+        argv = sys.argv[1:]
+
+    if argv and argv[0] in ("-v", "--version"):
+        print(f"evok {__version__}")
+        return 0
+
     parser = argparse.ArgumentParser(
         prog="ev",
         description="evok: Pure-Python high-performance package manager and virtualization runtime",
+    )
+    parser.add_argument(
+        "-v",
+        "--version",
+        action="version",
+        version=f"evok {__version__}",
     )
     subparsers = parser.add_subparsers(dest="command", help="Subcommand to execute")
 
