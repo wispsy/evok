@@ -34,3 +34,26 @@ jobs:
 
       - name: Run Pytest with Coverage
         run: uv run pytest --cov=evok --cov-report=term-missing
+
+  installed:
+    name: Installed artifacts (${{ matrix.os }}, Python ${{ matrix.python }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            python: '3.12'
+          - os: macos-latest
+            python: '3.14'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
+        with:
+          version: '0.13.9'
+          python-version: ${{ matrix.python }}
+      - run: uv build --out-dir dist
+      - run: uv run --no-project python scripts/check_release.py dist --tag v0.1.1
+      - run: uv run --no-project python scripts/qualify.py dist
