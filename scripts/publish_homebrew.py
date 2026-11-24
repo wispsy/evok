@@ -160,10 +160,12 @@ def main() -> None:
         if tar_path.exists():
             tar_sha = calculate_sha256(tar_path)
             print(f"Calculated sdist sha256: {tar_sha}")
-        else:
-            # Fallback to PyPI sha256 for 0.1.0
+        elif version == "0.1.0":
+            # Retain the known immutable 0.1.0 digest only for that version.
             tar_sha = "77a2ab2ee59ae6403feb48dc58a3d702794e44d0cdc0713c3ac0ee2fbda304a3"
             print(f"Using known PyPI release sha256 for {version}: {tar_sha}")
+        else:
+            parser.error("Provide --tar-sha256 or build the exact selected source archive first")
 
     formula_content = render_formula(version, tar_sha)
     publish_to_tap(args.tap, formula_content, version, dry_run=args.dry_run)

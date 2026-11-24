@@ -94,3 +94,13 @@ All development follows Conventional Commits (`feat:`, `fix:`, `docs:`, `ci:`, `
 
 ### Phase 6: Documentation, Benchmarks & Polish (Issue #6 / PR #6)
 - Comprehensive user documentation, architecture guide, API reference, and performance benchmarks.
+
+
+## REL-14: Installed CLI patch qualification
+
+Publish 0.1.1 for the version flags already implemented on main. Keep metadata
+and runtime versions consistent; qualify both exact installed artifacts and CLI
+entry points on Python 3.12-3.14. Add immutable tag/metadata/license/hash gates
+before Trusted Publishing. Preserve the historical Homebrew formula; a new
+version must use its own verified archive digest, never the 0.1.0 fallback.
+Update the tap through a protected PR after actual PyPI verification.

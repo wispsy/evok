@@ -41,7 +41,10 @@ brew install evok
 
 #### Option 2: PyPI (`uv` / `pip`)
 
-Evok runs on Python 3.12+ with zero external runtime dependencies:
+Evok runs on Python 3.12+ with zero external runtime dependencies. Version 0.1.1
+adds the CLI version flags described below. [Release qualification](docs/releasing.md)
+records the selected artifact checks.
+
 
 ```bash
 # Using uv (recommended)

@@ -1,6 +1,6 @@
 [project]
 name = "evok"
-version = "0.1.0"
+version = "0.1.1"
 description = "Pure-Python high-performance packaging engine and virtualization runtime"
 readme = "README.md"
 license = "MIT"
@@ -33,3 +33,6 @@ target-version = "py312"
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
+
+[tool.uv.build-backend]
+source-include = ["tests/*.py", "scripts/*.py", "packaging/homebrew/Formula/*.rb", "docs/*.md", "IMPLEMENTATION_PLAN.md"]
