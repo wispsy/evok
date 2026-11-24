@@ -1,11 +1,13 @@
 # Releasing Evok
 
-Version 0.1.1 publishes `ev --version`, `ev -v` and equivalent `evok` commands
-already implemented on main. The runtime version and package metadata agree.
+Version 0.1.2 publishes `ev --version`, `ev -v` and equivalent `evok` commands
+already implemented on main. The runtime version, package metadata, both version flags and `info` agree.
+Version 0.1.1 introduced the flags but retained an old `info` banner; its files
+remain immutable.
 This patch does not make new performance or package-index compatibility claims.
 
 Build one wheel and sdist, then run `python scripts/check_release.py dist --tag
-v0.1.1` and `python scripts/qualify.py dist`. The latter installs each artifact
+v0.1.2` and `python scripts/qualify.py dist`. The latter installs each artifact
 outside the checkout, runs the existing behavioral suite and both installed CLI
 entry points, and checks dependency consistency. Platform/Python CI must pass
 before merging the release preparation.

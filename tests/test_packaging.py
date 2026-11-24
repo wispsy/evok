@@ -22,7 +22,7 @@ def test_package_version_consistency() -> None:
     with open(pyproject_path, "rb") as f:
         pyproject = tomllib.load(f)
     assert evok.__version__ == pyproject["project"]["version"]
-    assert evok.__version__ == "0.1.1"
+    assert evok.__version__ == "0.1.2"
 
 
 def test_cli_version_argument() -> None:

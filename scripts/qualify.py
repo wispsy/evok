@@ -73,6 +73,13 @@ def main():
                         check=True,
                     )
                     assert result.stdout.strip() == "evok " + project["project"]["version"]
+                result = subprocess.run(
+                    [str(command), "info"], cwd=outside, capture_output=True, text=True, check=True
+                )
+                assert (
+                    result.stdout.splitlines()[0]
+                    == "evok version:     " + project["project"]["version"]
+                )
             run(["uv", "pip", "check", "--python", str(python)], outside)
         print(
             json.dumps(

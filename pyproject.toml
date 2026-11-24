@@ -1,6 +1,6 @@
 [project]
 name = "evok"
-version = "0.1.1"
+version = "0.1.2"
 description = "Pure-Python high-performance packaging engine and virtualization runtime"
 readme = "README.md"
 license = "MIT"
