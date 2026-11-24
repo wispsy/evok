@@ -4,7 +4,7 @@ from evok.environment import Environment
 from evok.pep440 import BitPackedVersion, SpecifierSet, VersionSpecifier
 from evok.resolver import InMemoryProvider, Requirement, ResolutionGraph, Resolver
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 
 __all__ = [
     "BitPackedVersion",

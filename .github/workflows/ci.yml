@@ -55,5 +55,5 @@ jobs:
           version: '0.13.9'
           python-version: ${{ matrix.python }}
       - run: uv build --out-dir dist
-      - run: uv run --no-project python scripts/check_release.py dist --tag v0.1.1
+      - run: uv run --no-project python scripts/check_release.py dist --tag v0.1.2
       - run: uv run --no-project python scripts/qualify.py dist

@@ -187,9 +187,10 @@ def cmd_info(args: argparse.Namespace) -> int:
     """Display runtime environment and filesystem capabilities."""
     import platform
 
+    from evok import __version__
     from evok.cache import default_cache_dir, reflink_file
 
-    print("evok version:     0.1.0")
+    print(f"evok version:     {__version__}")
     print(f"Python runtime:   {platform.python_implementation()} {sys.version.split()[0]}")
     print(f"Platform:         {sys.platform} ({platform.machine()})")
     cache_dir = default_cache_dir()

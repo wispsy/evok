@@ -1,5 +1,6 @@
 from pathlib import Path
 
+import evok
 from evok.cli import main
 
 
@@ -34,9 +35,12 @@ def test_cli_init_and_scan(tmp_path: Path) -> None:
     assert "unused-lib" not in updated_toml
 
 
-def test_cli_info() -> None:
+def test_cli_info(capsys, tmp_path, monkeypatch) -> None:
+    monkeypatch.setattr(evok, "__version__", "99.42.7")
+    monkeypatch.setattr("evok.cache.default_cache_dir", lambda: tmp_path)
     rc = main(["info"])
     assert rc == 0
+    assert capsys.readouterr().out.splitlines()[0] == "evok version:     99.42.7"
 
 
 def test_cli_build(tmp_path: Path) -> None:
